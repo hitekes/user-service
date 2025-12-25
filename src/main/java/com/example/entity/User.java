@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.*;
+import jakarta.persistence.*;  // ИЗМЕНИЛИ: javax -> jakarta
 import java.time.LocalDateTime;
 
 @Data
@@ -30,8 +30,7 @@ public class User {
     @Column(name = "age")
     private Integer age;
 
-    @Builder.Default
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createdAt;
 }

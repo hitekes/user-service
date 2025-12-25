@@ -3,6 +3,7 @@ package com.example.dao;
 import com.example.entity.User;
 import com.example.exception.DaoException;
 import com.example.util.HibernateUtil;
+import jakarta.persistence.criteria.CriteriaQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -18,17 +19,21 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User save(User user) throws DaoException {
+        Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.beginTransaction();
+            transaction = session.beginTransaction();
 
-            session.save(user);
+            session.persist(user);  // Изменили save() на persist() для Hibernate 6
             transaction.commit();
 
             logger.debug("Пользователь сохранен с ID: {}", user.getId());
             return user;
 
         } catch (Exception e) {
-            logger.error("Ошибка сохранения почты: {}", user.getEmail(), e);
+            if (transaction != null && transaction.isActive()) {
+                transaction.rollback();
+            }
+            logger.error("Ошибка сохранения пользователя с email: {}", user.getEmail(), e);
             throw new DaoException("Ошибка сохранения пользователя: " + e.getMessage(), e);
         }
     }
@@ -38,7 +43,6 @@ public class UserDaoImpl implements UserDao {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             User user = session.get(User.class, id);
             return Optional.ofNullable(user);
-
         } catch (Exception e) {
             logger.error("Ошибка поиска пользователя по ID: {}", id, e);
             throw new DaoException("Ошибка поиска пользователя по ID: " + id, e);
@@ -48,52 +52,59 @@ public class UserDaoImpl implements UserDao {
     @Override
     public List<User> findAll() throws DaoException {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery("FROM User", User.class).list();
-
+            // Для Hibernate 6
+            CriteriaQuery<User> criteriaQuery = session.getCriteriaBuilder().createQuery(User.class);
+            criteriaQuery.from(User.class);
+            return session.createQuery(criteriaQuery).getResultList();
         } catch (Exception e) {
-            logger.error("Ошибка ", e);
-            throw new DaoException("Ошибка ", e);
+            logger.error("Ошибка получения всех пользователей", e);
+            throw new DaoException("Ошибка получения всех пользователей", e);
         }
     }
 
     @Override
     public User update(User user) throws DaoException {
+        Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.beginTransaction();
+            transaction = session.beginTransaction();
 
-            session.update(user);
+            User updatedUser = session.merge(user);
             transaction.commit();
 
-            User updated = session.get(User.class, user.getId());
-            logger.debug("Данные пользователя обновлены : {}", updated);
-            return updated;
+            logger.debug("Данные пользователя обновлены: {}", updatedUser);
+            return updatedUser;
 
         } catch (Exception e) {
-            logger.error("Ошибка обновления ID: {}", user.getId(), e);
-            throw new DaoException("Ошибка обновления пользователя ", e);
+            if (transaction != null && transaction.isActive()) {
+                transaction.rollback();
+            }
+            logger.error("Ошибка обновления пользователя с ID: {}", user.getId(), e);
+            throw new DaoException("Ошибка обновления пользователя", e);
         }
     }
 
     @Override
     public void delete(Long id) throws DaoException {
+        Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.beginTransaction();
+            transaction = session.beginTransaction();
 
-            Query<?> query = session.createQuery("DELETE FROM User WHERE id = :id");
-            query.setParameter("id", id);
-            int deletedCount = query.executeUpdate();
+            User user = session.get(User.class, id);
+            if (user != null) {
+                session.remove(user);
+                logger.debug("Удален пользователь по ID: {}", id);
+            } else {
+                logger.debug("Не найден пользователь с ID: {}", id);
+            }
 
             transaction.commit();
 
-            if (deletedCount > 0) {
-                logger.debug("Удален пользователь по ID: {}", id);
-            } else {
-                logger.debug("Не найден с ID: {} ", id);
-            }
-
         } catch (Exception e) {
-            logger.error("Ошибка удаления по ID: {}", id, e);
-            throw new DaoException("Ошибка удаления по ID: " + id, e);
+            if (transaction != null && transaction.isActive()) {
+                transaction.rollback();
+            }
+            logger.error("Ошибка удаления пользователя по ID: {}", id, e);
+            throw new DaoException("Ошибка удаления пользователя по ID: " + id, e);
         }
     }
 
@@ -101,15 +112,15 @@ public class UserDaoImpl implements UserDao {
     public Optional<User> findByEmail(String email) throws DaoException {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Query<User> query = session.createQuery(
-                    "FROM User WHERE email = :email", User.class); // Исправить
+                    "FROM User WHERE email = :email", User.class);
             query.setParameter("email", email.trim().toLowerCase());
 
             User user = query.uniqueResult();
             return Optional.ofNullable(user);
 
         } catch (Exception e) {
-            logger.error("Ошибка поиска по email: {}", email, e);
-            throw new DaoException("Ошибка поиска по email: " + email, e);
+            logger.error("Ошибка поиска пользователя по email: {}", email, e);
+            throw new DaoException("Ошибка поиска пользователя по email: " + email, e);
         }
     }
 }
