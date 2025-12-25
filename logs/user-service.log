@@ -1,0 +1,588 @@
+2025-12-20 01:46:54 INFO  [main] com.example.ConnectionTestUtil - === Тестирование подключения к базе данных ===
+2025-12-20 01:46:54 ERROR [main] com.example.ConnectionTestUtil - Ошибка прямого JDBC подключения
+org.postgresql.util.PSQLException: �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:693)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:253)
+	at org.postgresql.Driver.makeConnection(Driver.java:434)
+	at org.postgresql.Driver.connect(Driver.java:291)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at com.example.ConnectionTestUtil.testDirectConnection(ConnectionTestUtil.java:20)
+	at com.example.ConnectionTestUtil.main(ConnectionTestUtil.java:46)
+2025-12-20 01:46:55 WARN  [main] o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2025-12-20 01:46:55 WARN  [main] o.h.e.j.e.i.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.getConnection(DriverManagerConnectionProviderImpl.java:220)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:272)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:246)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:107)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:255)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:129)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:42)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:62)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:457)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:323)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:297)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:501)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:101)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:76)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:107)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:255)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:146)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:272)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:246)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:175)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:295)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:252)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:173)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:86)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:479)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:85)
+	at com.example.util.HibernateUtil.<clinit>(HibernateUtil.java:25)
+	at com.example.ConnectionTestUtil.testHibernateConnection(ConnectionTestUtil.java:30)
+	at com.example.ConnectionTestUtil.main(ConnectionTestUtil.java:48)
+2025-12-20 01:46:55 WARN  [main] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 28P01
+2025-12-20 01:46:55 ERROR [main] o.h.e.jdbc.spi.SqlExceptionHelper - �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
+2025-12-20 01:46:55 ERROR [main] com.example.util.HibernateUtil - Ошибка при создании SessionFactory
+org.hibernate.com.example.service.spi.ServiceException: Unable to create requested com.example.service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:284)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:246)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:175)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:295)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:252)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:173)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:86)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:479)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:85)
+	at com.example.util.HibernateUtil.<clinit>(HibernateUtil.java:25)
+	at com.example.ConnectionTestUtil.testHibernateConnection(ConnectionTestUtil.java:30)
+	at com.example.ConnectionTestUtil.main(ConnectionTestUtil.java:48)
+Caused by: org.hibernate.exception.GenericJDBCException: Error calling Driver#connect
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:42)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:62)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:457)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:323)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:297)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:501)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:101)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:76)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:107)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:255)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:146)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:272)
+	... 14 common frames omitted
+Caused by: org.postgresql.util.PSQLException: �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:693)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:253)
+	at org.postgresql.Driver.makeConnection(Driver.java:434)
+	at org.postgresql.Driver.connect(Driver.java:291)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:39)
+	... 29 common frames omitted
+2025-12-20 01:48:20 INFO  [main] com.example.Main - Запуск User Service приложения
+2025-12-20 01:48:20 WARN  [main] o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2025-12-20 01:48:20 WARN  [main] o.h.e.j.e.i.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.getConnection(DriverManagerConnectionProviderImpl.java:220)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:272)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:246)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:107)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:255)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:129)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:42)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:62)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:457)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:323)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:297)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:501)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:101)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:76)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:107)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:255)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:146)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:272)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:246)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:175)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:295)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:252)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:173)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:86)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:479)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:85)
+	at com.example.util.HibernateUtil.<clinit>(HibernateUtil.java:25)
+	at com.example.dao.UserDaoImpl.findAll(UserDaoImpl.java:48)
+	at com.example.Main.testDatabaseConnection(Main.java:53)
+	at com.example.Main.main(Main.java:25)
+2025-12-20 01:48:20 WARN  [main] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 28P01
+2025-12-20 01:48:20 ERROR [main] o.h.e.jdbc.spi.SqlExceptionHelper - �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
+2025-12-20 01:48:20 ERROR [main] com.example.util.HibernateUtil - Ошибка при создании SessionFactory
+org.hibernate.com.example.service.spi.ServiceException: Unable to create requested com.example.service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:284)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:246)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:175)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:295)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:252)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:173)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:86)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:479)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:85)
+	at com.example.util.HibernateUtil.<clinit>(HibernateUtil.java:25)
+	at com.example.dao.UserDaoImpl.findAll(UserDaoImpl.java:48)
+	at com.example.Main.testDatabaseConnection(Main.java:53)
+	at com.example.Main.main(Main.java:25)
+Caused by: org.hibernate.exception.GenericJDBCException: Error calling Driver#connect
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:131)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:42)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:62)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:457)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:323)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:297)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:501)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:101)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:76)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:107)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:255)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:146)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.com.example.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:272)
+	... 15 common frames omitted
+Caused by: org.postgresql.util.PSQLException: �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:693)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:253)
+	at org.postgresql.Driver.makeConnection(Driver.java:434)
+	at org.postgresql.Driver.connect(Driver.java:291)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:39)
+	... 30 common frames omitted
+2025-12-20 01:50:59 INFO  [main] com.example.Main - Запуск User Service приложения
+2025-12-20 01:50:59 WARN  [main] o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2025-12-20 01:51:00 DEBUG [main] org.hibernate.SQL - 
+    
+    alter table users 
+       add column age int4
+2025-12-20 01:51:00 DEBUG [main] org.hibernate.SQL - 
+    
+    alter table users 
+       add column name varchar(100) not null
+2025-12-20 01:51:00 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory создан успешно
+2025-12-20 01:51:00 DEBUG [main] org.hibernate.SQL - 
+    select
+        user0_.id as id1_0_,
+        user0_.age as age2_0_,
+        user0_.created_at as created_3_0_,
+        user0_.email as email4_0_,
+        user0_.name as name5_0_ 
+    from
+        users user0_
+2025-12-20 01:51:00 INFO  [main] com.example.Main - Подключение успешно. Пользователей: 0
+2025-12-20 01:51:28 DEBUG [main] org.hibernate.SQL - 
+    insert 
+    into
+        users
+        (age, created_at, email, name) 
+    values
+        (?, ?, ?, ?)
+2025-12-20 01:51:28 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [INTEGER] - [522]
+2025-12-20 01:51:28 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [TIMESTAMP] - [2025-12-20T01:51:28.688325600]
+2025-12-20 01:51:28 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [абобамэил.ру]
+2025-12-20 01:51:28 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - [абоба]
+2025-12-20 01:51:28 WARN  [main] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 23502
+2025-12-20 01:51:28 ERROR [main] o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: значение NULL в столбце "username" отношения "users" нарушает ограничение NOT NULL
+  Подробности: Ошибочная строка содержит (1, null, абобамэил.ру, null, 2025-12-20 01:51:28.688326, 2025-12-20 01:51:28.705937, 522, абоба).
+2025-12-20 01:51:28 ERROR [main] com.example.Main - Критическая ошибка
+java.lang.IllegalStateException: org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl@796f632b is closed
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.errorIfClosed(AbstractLogicalConnectionImplementor.java:37)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:137)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getConnectionForTransactionManagement(LogicalConnectionManagedImpl.java:276)
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.rollback(AbstractLogicalConnectionImplementor.java:121)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.rollback(JdbcResourceLocalTransactionCoordinatorImpl.java:304)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.rollback(TransactionImpl.java:142)
+	at com.example.dao.UserDaoImpl.save(UserDaoImpl.java:29)
+	at com.example.Main.createUser(Main.java:90)
+	at com.example.Main.main(Main.java:33)
+2025-12-20 01:51:28 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory закрыт
+2025-12-20 01:52:38 INFO  [main] com.example.Main - Запуск User Service приложения
+2025-12-20 01:52:38 WARN  [main] o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2025-12-20 01:52:39 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory создан успешно
+2025-12-20 01:52:39 DEBUG [main] org.hibernate.SQL - 
+    select
+        user0_.id as id1_0_,
+        user0_.age as age2_0_,
+        user0_.created_at as created_3_0_,
+        user0_.email as email4_0_,
+        user0_.name as name5_0_ 
+    from
+        users user0_
+2025-12-20 01:52:39 INFO  [main] com.example.Main - Подключение успешно. Пользователей: 0
+2025-12-20 01:53:00 DEBUG [main] org.hibernate.SQL - 
+    insert 
+    into
+        users
+        (age, created_at, email, name) 
+    values
+        (?, ?, ?, ?)
+2025-12-20 01:53:00 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [INTEGER] - [28]
+2025-12-20 01:53:00 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [TIMESTAMP] - [2025-12-20T01:53:00.141379100]
+2025-12-20 01:53:00 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [aleh@mail.ru]
+2025-12-20 01:53:00 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - [Олех]
+2025-12-20 01:53:00 WARN  [main] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 23502
+2025-12-20 01:53:00 ERROR [main] o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: значение NULL в столбце "username" отношения "users" нарушает ограничение NOT NULL
+  Подробности: Ошибочная строка содержит (2, null, aleh@mail.ru, null, 2025-12-20 01:53:00.141379, 2025-12-20 01:53:00.154839, 28, Олех).
+2025-12-20 01:53:00 ERROR [main] com.example.Main - Критическая ошибка
+java.lang.IllegalStateException: org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl@796f632b is closed
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.errorIfClosed(AbstractLogicalConnectionImplementor.java:37)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:137)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getConnectionForTransactionManagement(LogicalConnectionManagedImpl.java:276)
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.rollback(AbstractLogicalConnectionImplementor.java:121)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.rollback(JdbcResourceLocalTransactionCoordinatorImpl.java:304)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.rollback(TransactionImpl.java:142)
+	at com.example.dao.UserDaoImpl.save(UserDaoImpl.java:29)
+	at com.example.Main.createUser(Main.java:90)
+	at com.example.Main.main(Main.java:33)
+2025-12-20 01:53:00 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory закрыт
+2025-12-20 01:55:24 INFO  [main] com.example.Main - Запуск User Service приложения
+2025-12-20 01:55:24 WARN  [main] o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2025-12-20 01:55:25 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory создан успешно
+2025-12-20 01:55:25 DEBUG [main] org.hibernate.SQL - 
+    select
+        user0_.id as id1_0_,
+        user0_.age as age2_0_,
+        user0_.created_at as created_3_0_,
+        user0_.email as email4_0_,
+        user0_.name as name5_0_ 
+    from
+        users user0_
+2025-12-20 01:55:25 INFO  [main] com.example.Main - Подключение успешно. Пользователей: 0
+2025-12-20 01:55:28 DEBUG [main] org.hibernate.SQL - 
+    select
+        user0_.id as id1_0_,
+        user0_.age as age2_0_,
+        user0_.created_at as created_3_0_,
+        user0_.email as email4_0_,
+        user0_.name as name5_0_ 
+    from
+        users user0_
+2025-12-20 01:55:37 DEBUG [main] org.hibernate.SQL - 
+    select
+        user0_.id as id1_0_,
+        user0_.age as age2_0_,
+        user0_.created_at as created_3_0_,
+        user0_.email as email4_0_,
+        user0_.name as name5_0_ 
+    from
+        users user0_ 
+    where
+        user0_.email=?
+2025-12-20 01:55:37 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - []
+2025-12-20 01:55:49 DEBUG [main] org.hibernate.SQL - 
+    insert 
+    into
+        users
+        (age, created_at, email, name) 
+    values
+        (?, ?, ?, ?)
+2025-12-20 01:55:49 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [INTEGER] - [null]
+2025-12-20 01:55:49 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [TIMESTAMP] - [2025-12-20T01:55:48.989436300]
+2025-12-20 01:55:49 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [паа]
+2025-12-20 01:55:49 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - [олег]
+2025-12-20 01:55:49 WARN  [main] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 23502
+2025-12-20 01:55:49 ERROR [main] o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: значение NULL в столбце "username" отношения "users" нарушает ограничение NOT NULL
+  Подробности: Ошибочная строка содержит (3, null, паа, null, 2025-12-20 01:55:48.989436, 2025-12-20 01:55:49.004672, null, олег).
+2025-12-20 01:55:49 ERROR [main] com.example.Main - Критическая ошибка
+java.lang.IllegalStateException: org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl@46046c06 is closed
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.errorIfClosed(AbstractLogicalConnectionImplementor.java:37)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:137)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getConnectionForTransactionManagement(LogicalConnectionManagedImpl.java:276)
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.rollback(AbstractLogicalConnectionImplementor.java:121)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.rollback(JdbcResourceLocalTransactionCoordinatorImpl.java:304)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.rollback(TransactionImpl.java:142)
+	at com.example.dao.UserDaoImpl.save(UserDaoImpl.java:29)
+	at com.example.Main.createUser(Main.java:90)
+	at com.example.Main.main(Main.java:33)
+2025-12-20 01:55:49 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory закрыт
+2025-12-20 01:58:09 INFO  [main] com.example.Main - Запуск User Service приложения
+2025-12-20 01:58:10 WARN  [main] o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2025-12-20 01:58:10 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory создан успешно
+2025-12-20 01:58:10 DEBUG [main] org.hibernate.SQL - 
+    select
+        user0_.id as id1_0_,
+        user0_.age as age2_0_,
+        user0_.created_at as created_3_0_,
+        user0_.email as email4_0_,
+        user0_.name as name5_0_ 
+    from
+        users user0_
+2025-12-20 01:58:10 INFO  [main] com.example.Main - Подключение успешно. Пользователей: 0
+2025-12-20 01:59:21 INFO  [main] com.example.Main - Запуск User Service приложения
+2025-12-20 01:59:22 WARN  [main] o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2025-12-20 01:59:22 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory создан успешно
+2025-12-20 01:59:22 DEBUG [main] org.hibernate.SQL - 
+    select
+        user0_.id as id1_0_,
+        user0_.age as age2_0_,
+        user0_.created_at as created_3_0_,
+        user0_.email as email4_0_,
+        user0_.name as name5_0_ 
+    from
+        users user0_
+2025-12-20 01:59:22 INFO  [main] com.example.Main - Подключение успешно. Пользователей: 0
+2025-12-20 01:59:46 DEBUG [main] org.hibernate.SQL - 
+    select
+        user0_.id as id1_0_,
+        user0_.age as age2_0_,
+        user0_.created_at as created_3_0_,
+        user0_.email as email4_0_,
+        user0_.name as name5_0_ 
+    from
+        users user0_ 
+    where
+        user0_.email=?
+2025-12-20 01:59:46 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [Oleg@mail.ru]
+2025-12-20 02:00:13 INFO  [main] com.example.Main - Попытка сохранить пользователя: User{id=null, name='Олег', email='Oleg@mail.ru', age=22, createdAt=2025-12-20T02:00:13.666797400}
+2025-12-20 02:00:13 DEBUG [main] org.hibernate.SQL - 
+    insert 
+    into
+        users
+        (age, created_at, email, name) 
+    values
+        (?, ?, ?, ?)
+2025-12-20 02:00:13 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [INTEGER] - [22]
+2025-12-20 02:00:13 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [TIMESTAMP] - [2025-12-20T02:00:13.666797400]
+2025-12-20 02:00:13 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [Oleg@mail.ru]
+2025-12-20 02:00:13 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - [Олег]
+2025-12-20 02:00:13 WARN  [main] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 23502
+2025-12-20 02:00:13 ERROR [main] o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: значение NULL в столбце "username" отношения "users" нарушает ограничение NOT NULL
+  Подробности: Ошибочная строка содержит (4, null, Oleg@mail.ru, null, 2025-12-20 02:00:13.666797, 2025-12-20 02:00:13.683303, 22, Олег).
+2025-12-20 02:00:13 ERROR [main] com.example.Main - Неожиданная ошибка при создании пользователя
+java.lang.IllegalStateException: org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl@93824eb is closed
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.errorIfClosed(AbstractLogicalConnectionImplementor.java:37)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:137)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getConnectionForTransactionManagement(LogicalConnectionManagedImpl.java:276)
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.rollback(AbstractLogicalConnectionImplementor.java:121)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.rollback(JdbcResourceLocalTransactionCoordinatorImpl.java:304)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.rollback(TransactionImpl.java:142)
+	at com.example.dao.UserDaoImpl.save(UserDaoImpl.java:29)
+	at com.example.Main.createUser(Main.java:143)
+	at com.example.Main.main(Main.java:33)
+2025-12-20 02:07:22 INFO  [main] com.example.util.HibernateUtil - Инициализация Hibernate...
+2025-12-20 02:07:23 WARN  [main] o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2025-12-20 02:07:23 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory создана успешно
+2025-12-20 02:07:23 DEBUG [main] org.hibernate.SQL - 
+    insert 
+    into
+        users
+        (age, created_at, email, name) 
+    values
+        (?, ?, ?, ?)
+2025-12-20 02:07:23 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [INTEGER] - [25]
+2025-12-20 02:07:23 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [TIMESTAMP] - [2025-12-20T02:07:23.582634300]
+2025-12-20 02:07:23 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [test1766185643581@test.com]
+2025-12-20 02:07:23 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - [Тестовый]
+2025-12-20 02:07:23 WARN  [main] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 23502
+2025-12-20 02:07:23 ERROR [main] o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: значение NULL в столбце "username" отношения "users" нарушает ограничение NOT NULL
+  Подробности: Ошибочная строка содержит (5, null, test1766185643581@test.com, null, 2025-12-20 02:07:23.582634, 2025-12-20 02:07:23.595291, 25, Тестовый).
+2025-12-20 02:07:23 ERROR [main] o.h.e.j.c.i.DriverManagerConnectionProviderImpl - Connection leak detected: there are 1 unclosed connections upon shutting down pool jdbc:postgresql://localhost:5432/postgres
+2025-12-20 02:07:23 ERROR [main] o.hibernate.orm.connections.pooling - Connection leak detected: there are 1 unclosed connections!
+2025-12-20 02:07:23 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory закрыта
+2025-12-20 02:11:08 INFO  [main] com.example.util.HibernateUtil - Инициализация Hibernate...
+2025-12-20 02:11:09 WARN  [main] o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2025-12-20 02:11:09 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory создана успешно
+2025-12-20 02:11:09 DEBUG [main] org.hibernate.SQL - 
+    insert 
+    into
+        users
+        (age, created_at, email, name) 
+    values
+        (?, ?, ?, ?)
+2025-12-20 02:11:09 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [INTEGER] - [25]
+2025-12-20 02:11:09 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [TIMESTAMP] - [2025-12-20T02:11:09.888245800]
+2025-12-20 02:11:09 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [test1766185869888@test.com]
+2025-12-20 02:11:09 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - [Тестовый]
+2025-12-20 02:11:09 WARN  [main] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 23502
+2025-12-20 02:11:09 ERROR [main] o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: значение NULL в столбце "password_hash" отношения "users" нарушает ограничение NOT NULL
+  Подробности: Ошибочная строка содержит (6, test1766185869888@test.com, null, 2025-12-20 02:11:09.888246, 2025-12-20 02:11:09.90135, 25, Тестовый).
+2025-12-20 02:11:09 ERROR [main] o.h.e.j.c.i.DriverManagerConnectionProviderImpl - Connection leak detected: there are 1 unclosed connections upon shutting down pool jdbc:postgresql://localhost:5432/postgres
+2025-12-20 02:11:09 ERROR [main] o.hibernate.orm.connections.pooling - Connection leak detected: there are 1 unclosed connections!
+2025-12-20 02:11:09 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory закрыта
+2025-12-20 02:14:00 INFO  [main] com.example.Main - Запуск User Service приложения
+2025-12-20 02:14:00 INFO  [main] com.example.util.HibernateUtil - Инициализация Hibernate...
+2025-12-20 02:14:00 WARN  [main] o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2025-12-20 02:14:01 DEBUG [main] org.hibernate.SQL - 
+    
+    drop table if exists users cascade
+2025-12-20 02:14:01 WARN  [main] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2025-12-20 02:14:01 WARN  [main] o.h.e.jdbc.spi.SqlExceptionHelper - таблица "users" не существует, пропускается
+2025-12-20 02:14:01 DEBUG [main] org.hibernate.SQL - 
+    
+    create table users (
+       id  bigserial not null,
+        age int4,
+        created_at timestamp not null,
+        email varchar(100) not null,
+        name varchar(100) not null,
+        primary key (id)
+    )
+2025-12-20 02:14:01 DEBUG [main] org.hibernate.SQL - 
+    
+    alter table users 
+       add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email)
+2025-12-20 02:14:01 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory создана успешно
+2025-12-20 02:14:01 DEBUG [main] org.hibernate.SQL - 
+    select
+        user0_.id as id1_0_,
+        user0_.age as age2_0_,
+        user0_.created_at as created_3_0_,
+        user0_.email as email4_0_,
+        user0_.name as name5_0_ 
+    from
+        users user0_
+2025-12-20 02:14:01 INFO  [main] com.example.Main - Подключение успешно. Пользователей: 0
+2025-12-20 02:14:04 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory закрыта
+2025-12-20 02:14:34 INFO  [main] com.example.util.HibernateUtil - Инициализация Hibernate...
+2025-12-20 02:14:34 WARN  [main] o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2025-12-20 02:14:35 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory создана успешно
+2025-12-20 02:14:35 DEBUG [main] org.hibernate.SQL - 
+    insert 
+    into
+        users
+        (age, created_at, email, name) 
+    values
+        (?, ?, ?, ?)
+2025-12-20 02:14:35 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [INTEGER] - [25]
+2025-12-20 02:14:35 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [TIMESTAMP] - [2025-12-20T02:14:35.212267100]
+2025-12-20 02:14:35 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [test1766186075212@test.com]
+2025-12-20 02:14:35 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - [Тестовый]
+2025-12-20 02:14:35 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory закрыта
+2025-12-20 02:14:47 INFO  [main] com.example.Main - Запуск User Service приложения
+2025-12-20 02:14:47 INFO  [main] com.example.util.HibernateUtil - Инициализация Hibernate...
+2025-12-20 02:14:48 WARN  [main] o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2025-12-20 02:14:48 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory создана успешно
+2025-12-20 02:14:48 DEBUG [main] org.hibernate.SQL - 
+    select
+        user0_.id as id1_0_,
+        user0_.age as age2_0_,
+        user0_.created_at as created_3_0_,
+        user0_.email as email4_0_,
+        user0_.name as name5_0_ 
+    from
+        users user0_
+2025-12-20 02:14:48 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([id1_0_] : [BIGINT]) - [1]
+2025-12-20 02:14:48 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([age2_0_] : [INTEGER]) - [25]
+2025-12-20 02:14:48 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([created_3_0_] : [TIMESTAMP]) - [2025-12-20T02:14:35.212267]
+2025-12-20 02:14:48 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([email4_0_] : [VARCHAR]) - [test1766186075212@test.com]
+2025-12-20 02:14:48 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([name5_0_] : [VARCHAR]) - [Тестовый]
+2025-12-20 02:14:48 INFO  [main] com.example.Main - Подключение успешно. Пользователей: 1
+2025-12-20 02:15:00 DEBUG [main] org.hibernate.SQL - 
+    select
+        user0_.id as id1_0_,
+        user0_.age as age2_0_,
+        user0_.created_at as created_3_0_,
+        user0_.email as email4_0_,
+        user0_.name as name5_0_ 
+    from
+        users user0_ 
+    where
+        user0_.email=?
+2025-12-20 02:15:00 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [oleg@mail.ru]
+2025-12-20 02:15:05 INFO  [main] com.example.Main - Попытка сохранить пользователя: User{id=null, name='Олег', email='Oleg@mail.ru', age=25, createdAt=2025-12-20T02:15:05.954349100}
+2025-12-20 02:15:05 DEBUG [main] org.hibernate.SQL - 
+    insert 
+    into
+        users
+        (age, created_at, email, name) 
+    values
+        (?, ?, ?, ?)
+2025-12-20 02:15:05 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [INTEGER] - [25]
+2025-12-20 02:15:05 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [TIMESTAMP] - [2025-12-20T02:15:05.954349100]
+2025-12-20 02:15:05 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [Oleg@mail.ru]
+2025-12-20 02:15:05 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - [Олег]
+2025-12-20 02:15:05 INFO  [main] com.example.dao.UserDaoImpl - Пользователь сохранен успешно. ID: 2
+2025-12-20 02:16:16 DEBUG [main] org.hibernate.SQL - 
+    select
+        user0_.id as id1_0_,
+        user0_.age as age2_0_,
+        user0_.created_at as created_3_0_,
+        user0_.email as email4_0_,
+        user0_.name as name5_0_ 
+    from
+        users user0_
+2025-12-20 02:16:16 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([id1_0_] : [BIGINT]) - [1]
+2025-12-20 02:16:16 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([age2_0_] : [INTEGER]) - [25]
+2025-12-20 02:16:16 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([created_3_0_] : [TIMESTAMP]) - [2025-12-20T02:14:35.212267]
+2025-12-20 02:16:16 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([email4_0_] : [VARCHAR]) - [test1766186075212@test.com]
+2025-12-20 02:16:16 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([name5_0_] : [VARCHAR]) - [Тестовый]
+2025-12-20 02:16:16 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([id1_0_] : [BIGINT]) - [2]
+2025-12-20 02:16:16 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([age2_0_] : [INTEGER]) - [25]
+2025-12-20 02:16:16 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([created_3_0_] : [TIMESTAMP]) - [2025-12-20T02:15:05.954349]
+2025-12-20 02:16:16 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([email4_0_] : [VARCHAR]) - [Oleg@mail.ru]
+2025-12-20 02:16:16 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([name5_0_] : [VARCHAR]) - [Олег]
+2025-12-20 02:16:48 DEBUG [main] org.hibernate.SQL - 
+    select
+        user0_.id as id1_0_0_,
+        user0_.age as age2_0_0_,
+        user0_.created_at as created_3_0_0_,
+        user0_.email as email4_0_0_,
+        user0_.name as name5_0_0_ 
+    from
+        users user0_ 
+    where
+        user0_.id=?
+2025-12-20 02:16:48 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [2]
+2025-12-20 02:16:48 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([age2_0_0_] : [INTEGER]) - [25]
+2025-12-20 02:16:48 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([created_3_0_0_] : [TIMESTAMP]) - [2025-12-20T02:15:05.954349]
+2025-12-20 02:16:48 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([email4_0_0_] : [VARCHAR]) - [Oleg@mail.ru]
+2025-12-20 02:16:48 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([name5_0_0_] : [VARCHAR]) - [Олег]
+2025-12-20 02:17:00 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory закрыта

@@ -1,6 +1,5 @@
 package com.example.util;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
@@ -16,11 +15,10 @@ public class HibernateUtil {
 
     static {
         try {
-            logger.info("Инициализация Hibernate...");
-
-            StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
-                    .configure("hibernate.cfg.xml")
-                    .build();
+            StandardServiceRegistry standardRegistry =
+                    new StandardServiceRegistryBuilder()
+                            .configure("hibernate.cfg.xml")
+                            .build();
 
             Metadata metadata = new MetadataSources(standardRegistry)
                     .getMetadataBuilder()
@@ -28,12 +26,10 @@ public class HibernateUtil {
 
             sessionFactory = metadata.getSessionFactoryBuilder().build();
 
-            logger.info("Hibernate SessionFactory создана успешно");
+            logger.info("Hibernate SessionFactory created successfully");
 
         } catch (Exception e) {
-            logger.error("Ошибка при создании SessionFactory", e);
-            System.err.println("=== КРИТИЧЕСКАЯ ОШИБКА HIBERNATE ===");
-            e.printStackTrace();
+            logger.error("Failed to create SessionFactory", e);
             throw new ExceptionInInitializerError(e);
         }
     }
@@ -42,18 +38,10 @@ public class HibernateUtil {
         return sessionFactory;
     }
 
-    public static Session openSession() {
-        return sessionFactory.openSession();
-    }
-
     public static void shutdown() {
-        try {
-            if (sessionFactory != null && !sessionFactory.isClosed()) {
-                sessionFactory.close();
-                logger.info("Hibernate SessionFactory закрыта");
-            }
-        } catch (Exception e) {
-            logger.error("Ошибка при закрытии SessionFactory", e);
+        if (sessionFactory != null && !sessionFactory.isClosed()) {
+            sessionFactory.close();
+            logger.info("Hibernate SessionFactory closed");
         }
     }
 }
