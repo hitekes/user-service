@@ -30,7 +30,8 @@ public class User {
     @Column(name = "age")
     private Integer age;
 
+    @Builder.Default
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
-    private LocalDateTime createdAt;
+    private LocalDateTime createdAt = LocalDateTime.now();
 }

@@ -64,7 +64,6 @@ public class UserDaoImpl implements UserDao {
             session.update(user);
             transaction.commit();
 
-            // Проверяем, что пользователь действительно обновлен
             User updated = session.get(User.class, user.getId());
             logger.debug("Данные пользователя обновлены : {}", updated);
             return updated;

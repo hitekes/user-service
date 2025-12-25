@@ -16,43 +16,73 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User createUser(String name, String email, Integer age) {
-        User user = User.builder()
-                .name(name)
-                .email(email)
-                .age(age)
-                .build();
-        return userDao.save(user);
+        try {
+            User user = User.builder()
+                    .name(name)
+                    .email(email)
+                    .age(age)
+                    .build();
+            return userDao.save(user);
+        } catch (DaoException e) {
+            log.error("Ошибка создания пользователя: {}", email, e);
+            throw new RuntimeException("Не удалось создать пользователя", e);
+        }
     }
 
     @Override
     public Optional<User> getUserById(Long id) {
-        return userDao.findById(id);
+        try {
+            return userDao.findById(id);
+        } catch (DaoException e) {
+            log.error("Ошибка получения пользователя по ID: {}", id, e);
+            throw new RuntimeException("Не удалось получить пользователя", e);
+        }
     }
 
     @Override
     public Optional<User> getUserByEmail(String email) {
-        return userDao.findByEmail(email);
+        try {
+            return userDao.findByEmail(email);
+        } catch (DaoException e) {
+            log.error("Ошибка получения пользователя по email: {}", email, e);
+            throw new RuntimeException("Не удалось получить пользователя", e);
+        }
     }
 
     @Override
     public List<User> getAllUsers() {
-        return userDao.findAll();
+        try {
+            return userDao.findAll();
+        } catch (DaoException e) {
+            log.error("Ошибка получения всех пользователей", e);
+            throw new RuntimeException("Не удалось получить список пользователей", e);
+        }
     }
 
     @Override
     public User updateUser(Long id, String name, String email, Integer age) {
-        User user = getUserById(id)
-                .orElseThrow(() -> new DaoException("User not found with id: " + id));
+        try {
+            User user = getUserById(id)
+                    .orElseThrow(() -> new RuntimeException("Пользователь не найден с id: " + id));
 
-        if (name != null) user.setName(name);
-        if (email != null) user.setEmail(email);
-        if (age != null) user.setAge(age);
+            if (name != null) user.setName(name);
+            if (email != null) user.setEmail(email);
+            if (age != null) user.setAge(age);
 
-        return userDao.update(user);
+            return userDao.update(user);
+        } catch (DaoException e) {
+            log.error("Ошибка обновления пользователя с ID: {}", id, e);
+            throw new RuntimeException("Не удалось обновить пользователя", e);
+        }
     }
 
     @Override
     public void deleteUser(Long id) {
-        userDao.delete(id);
+        try {
+            userDao.delete(id);
+        } catch (DaoException e) {
+            log.error("Ошибка удаления пользователя с ID: {}", id, e);
+            throw new RuntimeException("Не удалось удалить пользователя", e);
+        }
     }
 }
