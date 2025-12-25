@@ -4,14 +4,15 @@ import com.example.dao.UserDao;
 import com.example.dao.UserDaoImpl;
 import com.example.entity.User;
 import com.example.exception.DaoException;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Optional;
 
-@Slf4j
 public class UserServiceImpl implements UserService {
 
+    private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
     private final UserDao userDao = new UserDaoImpl();
 
     @Override

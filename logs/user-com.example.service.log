@@ -1,0 +1,286 @@
+2025-12-25 13:10:04 WARN  [main] o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2025-12-25 13:10:05 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory created successfully
+2025-12-25 13:10:05 DEBUG [main] org.hibernate.SQL - 
+    insert 
+    into
+        users
+        (age, created_at, email, name) 
+    values
+        (?, ?, ?, ?)
+2025-12-25 13:10:05 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [INTEGER] - [22]
+2025-12-25 13:10:05 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [TIMESTAMP] - [2025-12-25T13:10:04.337883300]
+2025-12-25 13:10:05 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [2@mail.ru]
+2025-12-25 13:10:05 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - [пап]
+2025-12-25 13:10:05 DEBUG [main] com.example.dao.UserDaoImpl - Пользователь сохранен с ID: 3
+2025-12-25 13:10:22 ERROR [main] o.h.hql.internal.ast.ErrorTracker - line 1:1: unexpected token: Пользователи
+2025-12-25 13:10:22 ERROR [main] o.h.hql.internal.ast.ErrorTracker - line 1:1: unexpected token: Пользователи
+antlr.NoViableAltException: unexpected token: Пользователи
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:212)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:294)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:189)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:144)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:112)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:73)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:162)
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:636)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:748)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:848)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:114)
+	at com.example.dao.UserDaoImpl.findAll(UserDaoImpl.java:51)
+	at com.example.service.UserServiceImpl.getAllUsers(UserServiceImpl.java:36)
+	at com.example.Main.findAll(Main.java:115)
+	at com.example.Main.main(Main.java:30)
+2025-12-25 13:10:22 ERROR [main] com.example.dao.UserDaoImpl - Ошибка 
+java.lang.IllegalArgumentException: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: Пользователи near line 1, column 1 [Пользователи: ]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:138)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:188)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:757)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:848)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:114)
+	at com.example.dao.UserDaoImpl.findAll(UserDaoImpl.java:51)
+	at com.example.service.UserServiceImpl.getAllUsers(UserServiceImpl.java:36)
+	at com.example.Main.findAll(Main.java:115)
+	at com.example.Main.main(Main.java:30)
+Caused by: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: Пользователи near line 1, column 1 [Пользователи: ]
+	at org.hibernate.hql.internal.ast.QuerySyntaxException.convert(QuerySyntaxException.java:74)
+	at org.hibernate.hql.internal.ast.ErrorTracker.throwQueryException(ErrorTracker.java:93)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:301)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:189)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:144)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:112)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:73)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:162)
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:636)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:748)
+	... 6 common frames omitted
+2025-12-25 13:11:48 ERROR [main] o.h.hql.internal.ast.ErrorTracker - line 1:1: unexpected token: Пользователи
+2025-12-25 13:11:48 ERROR [main] o.h.hql.internal.ast.ErrorTracker - line 1:1: unexpected token: Пользователи
+antlr.NoViableAltException: unexpected token: Пользователи
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:212)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:294)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:189)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:144)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:112)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:73)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:162)
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:636)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:748)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:848)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:114)
+	at com.example.dao.UserDaoImpl.findAll(UserDaoImpl.java:51)
+	at com.example.service.UserServiceImpl.getAllUsers(UserServiceImpl.java:36)
+	at com.example.Main.findAll(Main.java:115)
+	at com.example.Main.main(Main.java:30)
+2025-12-25 13:11:48 ERROR [main] com.example.dao.UserDaoImpl - Ошибка 
+java.lang.IllegalArgumentException: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: Пользователи near line 1, column 1 [Пользователи: ]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:138)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:188)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:757)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:848)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:114)
+	at com.example.dao.UserDaoImpl.findAll(UserDaoImpl.java:51)
+	at com.example.service.UserServiceImpl.getAllUsers(UserServiceImpl.java:36)
+	at com.example.Main.findAll(Main.java:115)
+	at com.example.Main.main(Main.java:30)
+Caused by: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: Пользователи near line 1, column 1 [Пользователи: ]
+	at org.hibernate.hql.internal.ast.QuerySyntaxException.convert(QuerySyntaxException.java:74)
+	at org.hibernate.hql.internal.ast.ErrorTracker.throwQueryException(ErrorTracker.java:93)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:301)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:189)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:144)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:112)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:73)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:162)
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:636)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:748)
+	... 6 common frames omitted
+2025-12-25 13:12:03 DEBUG [main] org.hibernate.SQL - 
+    insert 
+    into
+        users
+        (age, created_at, email, name) 
+    values
+        (?, ?, ?, ?)
+2025-12-25 13:12:03 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [INTEGER] - [22]
+2025-12-25 13:12:03 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [TIMESTAMP] - [2025-12-25T13:12:03.572407900]
+2025-12-25 13:12:03 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [1@1]
+2025-12-25 13:12:03 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - [abob]
+2025-12-25 13:12:03 DEBUG [main] com.example.dao.UserDaoImpl - Пользователь сохранен с ID: 4
+2025-12-25 13:12:08 DEBUG [main] org.hibernate.SQL - 
+    select
+        user0_.id as id1_0_0_,
+        user0_.age as age2_0_0_,
+        user0_.created_at as created_3_0_0_,
+        user0_.email as email4_0_0_,
+        user0_.name as name5_0_0_ 
+    from
+        users user0_ 
+    where
+        user0_.id=?
+2025-12-25 13:12:08 TRACE [main] o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [2]
+2025-12-25 13:12:08 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([age2_0_0_] : [INTEGER]) - [25]
+2025-12-25 13:12:08 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([created_3_0_0_] : [TIMESTAMP]) - [2025-12-20T02:15:05.954349]
+2025-12-25 13:12:08 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([email4_0_0_] : [VARCHAR]) - [Oleg@mail.ru]
+2025-12-25 13:12:08 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([name5_0_0_] : [VARCHAR]) - [Олег]
+2025-12-25 13:12:18 ERROR [main] o.h.hql.internal.ast.ErrorTracker - line 1:1: unexpected token: Пользователи
+2025-12-25 13:12:18 ERROR [main] o.h.hql.internal.ast.ErrorTracker - line 1:1: unexpected token: Пользователи
+antlr.NoViableAltException: unexpected token: Пользователи
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:212)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:294)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:189)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:144)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:112)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:73)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:162)
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:636)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:748)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:848)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:114)
+	at com.example.dao.UserDaoImpl.findAll(UserDaoImpl.java:51)
+	at com.example.service.UserServiceImpl.getAllUsers(UserServiceImpl.java:36)
+	at com.example.Main.findAll(Main.java:115)
+	at com.example.Main.main(Main.java:30)
+2025-12-25 13:12:18 ERROR [main] com.example.dao.UserDaoImpl - Ошибка 
+java.lang.IllegalArgumentException: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: Пользователи near line 1, column 1 [Пользователи: ]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:138)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:188)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:757)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:848)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:114)
+	at com.example.dao.UserDaoImpl.findAll(UserDaoImpl.java:51)
+	at com.example.service.UserServiceImpl.getAllUsers(UserServiceImpl.java:36)
+	at com.example.Main.findAll(Main.java:115)
+	at com.example.Main.main(Main.java:30)
+Caused by: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: Пользователи near line 1, column 1 [Пользователи: ]
+	at org.hibernate.hql.internal.ast.QuerySyntaxException.convert(QuerySyntaxException.java:74)
+	at org.hibernate.hql.internal.ast.ErrorTracker.throwQueryException(ErrorTracker.java:93)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:301)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:189)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:144)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:112)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:73)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:162)
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:636)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:748)
+	... 6 common frames omitted
+2025-12-25 13:13:10 ERROR [main] o.h.hql.internal.ast.ErrorTracker - line 1:1: unexpected token: Пользователи
+2025-12-25 13:13:10 ERROR [main] o.h.hql.internal.ast.ErrorTracker - line 1:1: unexpected token: Пользователи
+antlr.NoViableAltException: unexpected token: Пользователи
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:212)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:294)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:189)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:144)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:112)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:73)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:162)
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:636)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:748)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:848)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:114)
+	at com.example.dao.UserDaoImpl.findAll(UserDaoImpl.java:51)
+	at com.example.service.UserServiceImpl.getAllUsers(UserServiceImpl.java:36)
+	at com.example.Main.findAll(Main.java:115)
+	at com.example.Main.main(Main.java:30)
+2025-12-25 13:13:10 ERROR [main] com.example.dao.UserDaoImpl - Ошибка 
+java.lang.IllegalArgumentException: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: Пользователи near line 1, column 1 [Пользователи: ]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:138)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:188)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:757)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:848)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:114)
+	at com.example.dao.UserDaoImpl.findAll(UserDaoImpl.java:51)
+	at com.example.service.UserServiceImpl.getAllUsers(UserServiceImpl.java:36)
+	at com.example.Main.findAll(Main.java:115)
+	at com.example.Main.main(Main.java:30)
+Caused by: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: Пользователи near line 1, column 1 [Пользователи: ]
+	at org.hibernate.hql.internal.ast.QuerySyntaxException.convert(QuerySyntaxException.java:74)
+	at org.hibernate.hql.internal.ast.ErrorTracker.throwQueryException(ErrorTracker.java:93)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:301)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:189)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:144)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:112)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:73)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:162)
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:636)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:748)
+	... 6 common frames omitted
+2025-12-25 14:05:22 WARN  [main] o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2025-12-25 14:05:23 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory created successfully
+2025-12-25 14:05:23 DEBUG [main] org.hibernate.SQL - 
+    select
+        user0_.id as id1_0_,
+        user0_.age as age2_0_,
+        user0_.created_at as created_3_0_,
+        user0_.email as email4_0_,
+        user0_.name as name5_0_ 
+    from
+        users user0_
+2025-12-25 14:05:23 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([id1_0_] : [BIGINT]) - [1]
+2025-12-25 14:05:23 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([age2_0_] : [INTEGER]) - [25]
+2025-12-25 14:05:23 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([created_3_0_] : [TIMESTAMP]) - [2025-12-20T02:14:35.212267]
+2025-12-25 14:05:23 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([email4_0_] : [VARCHAR]) - [test1766186075212@test.com]
+2025-12-25 14:05:23 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([name5_0_] : [VARCHAR]) - [Тестовый]
+2025-12-25 14:05:23 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([id1_0_] : [BIGINT]) - [2]
+2025-12-25 14:05:23 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([age2_0_] : [INTEGER]) - [25]
+2025-12-25 14:05:23 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([created_3_0_] : [TIMESTAMP]) - [2025-12-20T02:15:05.954349]
+2025-12-25 14:05:23 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([email4_0_] : [VARCHAR]) - [Oleg@mail.ru]
+2025-12-25 14:05:23 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([name5_0_] : [VARCHAR]) - [Олег]
+2025-12-25 14:05:23 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([id1_0_] : [BIGINT]) - [3]
+2025-12-25 14:05:23 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([age2_0_] : [INTEGER]) - [22]
+2025-12-25 14:05:23 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([created_3_0_] : [TIMESTAMP]) - [2025-12-25T13:10:04.337883]
+2025-12-25 14:05:23 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([email4_0_] : [VARCHAR]) - [2@mail.ru]
+2025-12-25 14:05:23 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([name5_0_] : [VARCHAR]) - [пап]
+2025-12-25 14:05:23 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([id1_0_] : [BIGINT]) - [4]
+2025-12-25 14:05:23 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([age2_0_] : [INTEGER]) - [22]
+2025-12-25 14:05:23 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([created_3_0_] : [TIMESTAMP]) - [2025-12-25T13:12:03.572408]
+2025-12-25 14:05:23 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([email4_0_] : [VARCHAR]) - [1@1]
+2025-12-25 14:05:23 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([name5_0_] : [VARCHAR]) - [abob]
+2025-12-25 14:05:27 DEBUG [main] org.hibernate.SQL - 
+    select
+        user0_.id as id1_0_,
+        user0_.age as age2_0_,
+        user0_.created_at as created_3_0_,
+        user0_.email as email4_0_,
+        user0_.name as name5_0_ 
+    from
+        users user0_
+2025-12-25 14:05:27 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([id1_0_] : [BIGINT]) - [1]
+2025-12-25 14:05:27 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([age2_0_] : [INTEGER]) - [25]
+2025-12-25 14:05:27 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([created_3_0_] : [TIMESTAMP]) - [2025-12-20T02:14:35.212267]
+2025-12-25 14:05:27 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([email4_0_] : [VARCHAR]) - [test1766186075212@test.com]
+2025-12-25 14:05:27 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([name5_0_] : [VARCHAR]) - [Тестовый]
+2025-12-25 14:05:27 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([id1_0_] : [BIGINT]) - [2]
+2025-12-25 14:05:27 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([age2_0_] : [INTEGER]) - [25]
+2025-12-25 14:05:27 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([created_3_0_] : [TIMESTAMP]) - [2025-12-20T02:15:05.954349]
+2025-12-25 14:05:27 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([email4_0_] : [VARCHAR]) - [Oleg@mail.ru]
+2025-12-25 14:05:27 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([name5_0_] : [VARCHAR]) - [Олег]
+2025-12-25 14:05:27 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([id1_0_] : [BIGINT]) - [3]
+2025-12-25 14:05:27 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([age2_0_] : [INTEGER]) - [22]
+2025-12-25 14:05:27 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([created_3_0_] : [TIMESTAMP]) - [2025-12-25T13:10:04.337883]
+2025-12-25 14:05:27 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([email4_0_] : [VARCHAR]) - [2@mail.ru]
+2025-12-25 14:05:27 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([name5_0_] : [VARCHAR]) - [пап]
+2025-12-25 14:05:27 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([id1_0_] : [BIGINT]) - [4]
+2025-12-25 14:05:27 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([age2_0_] : [INTEGER]) - [22]
+2025-12-25 14:05:27 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([created_3_0_] : [TIMESTAMP]) - [2025-12-25T13:12:03.572408]
+2025-12-25 14:05:27 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([email4_0_] : [VARCHAR]) - [1@1]
+2025-12-25 14:05:27 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([name5_0_] : [VARCHAR]) - [abob]
+2025-12-25 14:06:32 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory closed
+2025-12-25 19:56:43 WARN  [main] o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-12-25 19:56:43 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-25 19:56:43 DEBUG [main] o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@4b770e40) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@78e16155)
+2025-12-25 19:56:43 DEBUG [main] o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@54a3ab8f) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1968a49c)
+2025-12-25 19:56:44 INFO  [main] com.example.util.HibernateUtil - Hibernate 6 SessionFactory created successfully for Java 25
+2025-12-25 19:56:44 DEBUG [main] org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.age,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name 
+    from
+        users u1_0
+2025-12-25 19:56:47 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory closed

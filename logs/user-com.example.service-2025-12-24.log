@@ -1,0 +1,25 @@
+2025-12-24 18:58:40 WARN  [main] o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2025-12-24 18:58:41 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory created successfully
+2025-12-24 18:58:41 DEBUG [main] org.hibernate.SQL - 
+    select
+        user0_.id as id1_0_,
+        user0_.age as age2_0_,
+        user0_.created_at as created_3_0_,
+        user0_.email as email4_0_,
+        user0_.name as name5_0_ 
+    from
+        users user0_
+2025-12-24 18:58:41 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([id1_0_] : [BIGINT]) - [1]
+2025-12-24 18:58:41 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([age2_0_] : [INTEGER]) - [25]
+2025-12-24 18:58:41 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([created_3_0_] : [TIMESTAMP]) - [2025-12-20T02:14:35.212267]
+2025-12-24 18:58:41 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([email4_0_] : [VARCHAR]) - [test1766186075212@test.com]
+2025-12-24 18:58:41 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([name5_0_] : [VARCHAR]) - [Тестовый]
+2025-12-24 18:58:41 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([id1_0_] : [BIGINT]) - [2]
+2025-12-24 18:58:41 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([age2_0_] : [INTEGER]) - [25]
+2025-12-24 18:58:41 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([created_3_0_] : [TIMESTAMP]) - [2025-12-20T02:15:05.954349]
+2025-12-24 18:58:41 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([email4_0_] : [VARCHAR]) - [Oleg@mail.ru]
+2025-12-24 18:58:41 TRACE [main] o.h.t.descriptor.sql.BasicExtractor - extracted value ([name5_0_] : [VARCHAR]) - [Олег]
+2025-12-24 18:58:48 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory closed
+2025-12-24 21:06:14 WARN  [main] o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2025-12-24 21:06:15 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory created successfully
+2025-12-24 21:06:15 INFO  [main] com.example.util.HibernateUtil - Hibernate SessionFactory closed
