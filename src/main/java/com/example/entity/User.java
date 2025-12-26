@@ -26,7 +26,6 @@ public class User {
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    // Конструкторы
     public User() {
     }
 
@@ -38,7 +37,6 @@ public class User {
         this.createdAt = createdAt;
     }
 
-    // Геттеры
     public Long getId() {
         return id;
     }
@@ -59,7 +57,6 @@ public class User {
         return createdAt;
     }
 
-    // Сеттеры
     public void setId(Long id) {
         this.id = id;
     }
@@ -80,7 +77,6 @@ public class User {
         this.createdAt = createdAt;
     }
 
-    // Builder pattern
     public static Builder builder() {
         return new Builder();
     }
