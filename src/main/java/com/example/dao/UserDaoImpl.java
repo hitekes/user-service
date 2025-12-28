@@ -23,7 +23,7 @@ public class UserDaoImpl implements UserDao {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
 
-            session.persist(user);  // Изменили save() на persist() для Hibernate 6
+            session.persist(user);
             transaction.commit();
 
             logger.debug("Пользователь сохранен с ID: {}", user.getId());

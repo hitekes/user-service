@@ -1,7 +1,6 @@
 package com.example.service;
 
 import com.example.dao.UserDao;
-import com.example.dao.UserDaoImpl;
 import com.example.entity.User;
 import com.example.exception.DaoException;
 import org.slf4j.Logger;
@@ -13,7 +12,15 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
 
     private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
-    private final UserDao userDao = new UserDaoImpl();
+    private final UserDao userDao;
+
+    public UserServiceImpl(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
+    public UserServiceImpl() {
+        this.userDao = new com.example.dao.UserDaoImpl();
+    }
 
     @Override
     public User createUser(String name, String email, Integer age) {

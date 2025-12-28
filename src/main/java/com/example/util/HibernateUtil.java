@@ -53,4 +53,8 @@ public class HibernateUtil {
             logger.info("Hibernate SessionFactory closed");
         }
     }
+
+    public static void setSessionFactory(SessionFactory sessionFactory) {
+        HibernateUtil.sessionFactory = sessionFactory;
+    }
 }
