@@ -7,6 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -29,6 +31,9 @@ class UserServiceImplTest {
     @InjectMocks
     private UserServiceImpl userService;
 
+    @Captor
+    private ArgumentCaptor<User> userArgumentCaptor;
+
     private User testUser;
 
     @BeforeEach
@@ -43,28 +48,39 @@ class UserServiceImplTest {
                 .createdAt(LocalDateTime.now())
                 .build();
     }
-
-    @Test
-    @DisplayName("Должен успешно создать пользователя")
-    void createUser_ShouldCreateUserSuccessfully() {
-        User userToSave = User.builder()
-                .name("Test User")
-                .email("test@example.com")
-                .age(25)
-                .build();
-
-        when(userDao.save(any(User.class))).thenReturn(testUser);
-        User createdUser = userService.createUser("Test User", "test@example.com", 25);
-        assertThat(createdUser).isNotNull();
-        assertThat(createdUser.getId()).isEqualTo(1L);
-        assertThat(createdUser.getEmail()).isEqualTo("test@example.com");
-
-        verify(userDao, times(1)).save(argThat(user ->
-                user.getName().equals("Test User") &&
-                        user.getEmail().equals("test@example.com") &&
-                        user.getAge() == 25
-        ));
-    }
+@Test
+@DisplayName("Должен успешно создать пользователя (с ArgumentCaptor)")
+void createUser_ShouldCreateUserSuccessfully_WithArgumentCaptor() {
+    when(userDao.save(any(User.class))).thenReturn(testUser);
+    User actualResult = userService.createUser("Test User", "test@example.com", 25);
+    assertThat(actualResult)
+            .isNotNull()
+            .extracting(
+                    User::getId,
+                    User::getName,
+                    User::getEmail,
+                    User::getAge
+            )
+            .containsExactly(
+                    1L,
+                    "Test User",
+                    "test@example.com",
+                    25
+            );
+    verify(userDao, times(1)).save(userArgumentCaptor.capture());
+    User capturedUser = userArgumentCaptor.getValue();
+    assertThat(capturedUser)
+            .isNotNull()
+            .satisfies(user -> {
+                assertThat(user.getId()).isNull();
+                assertThat(user.getName()).isEqualTo("Test User");
+                assertThat(user.getEmail()).isEqualTo("test@example.com");
+                assertThat(user.getAge()).isEqualTo(25);
+                assertThat(user.getCreatedAt()).isNotNull();
+            });
+    verify(userDao, only()).save(any(User.class));
+    verifyNoMoreInteractions(userDao);
+}
 
     @Test
     @DisplayName("Должен выбросить RuntimeException при ошибке создания пользователя")
