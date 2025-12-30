@@ -17,11 +17,9 @@ public class HibernateUtil {
 
     static {
         try {
-            // Для Hibernate 6.x
             Configuration configuration = new Configuration();
             configuration.configure("hibernate.cfg.xml");
 
-            // Явно регистрируем entity
             configuration.addAnnotatedClass(User.class);
 
             StandardServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
